@@ -7,21 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Canrea</copyright>
-        <lastBuildDate>Sat, 02 Nov 2024 18:12:48 +0800</lastBuildDate><atom:link href="https://Canrea.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>NewArticle</title>
-        <link>https://Canrea.github.io/p/newarticle/</link>
-        <pubDate>Sat, 02 Nov 2024 18:12:48 +0800</pubDate>
+        <lastBuildDate>Sat, 02 Nov 2024 18:29:39 +0800</lastBuildDate><atom:link href="https://Canrea.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hello_World</title>
+        <link>https://Canrea.github.io/p/hello_world/</link>
+        <pubDate>Sat, 02 Nov 2024 18:29:39 +0800</pubDate>
         
-        <guid>https://Canrea.github.io/p/newarticle/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>MyFirstBlog</title>
-        <link>https://Canrea.github.io/p/myfirstblog/</link>
-        <pubDate>Sat, 02 Nov 2024 14:57:12 +0800</pubDate>
-        
-        <guid>https://Canrea.github.io/p/myfirstblog/</guid>
-        <description>&lt;h3 id=&#34;hello-world&#34;&gt;Hello World
+        <guid>https://Canrea.github.io/p/hello_world/</guid>
+        <description>&lt;h3 id=&#34;hello-world&#34;&gt;Hello world!
 &lt;/h3&gt;</description>
         </item>
         <item>
