@@ -476,6 +476,97 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<script type="text/javascript">
+	
+const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 
+const cssPath = "https://Canrea.github.io/waifu/waifu.css"
+const waifuTipsJsonPath = "https://Canrea.github.io/waifu/waifu-tips.json";
+const live2dMinJsPath = "https://Canrea.github.io/waifu/live2d.min.js";
+
+function loadExternalResource(url, type) {
+	return new Promise((resolve, reject) => {
+		let tag;
+
+		if (type === "css") {
+			tag = document.createElement("link");
+			tag.rel = "stylesheet";
+			tag.href = url;
+		}
+		else if (type === "js") {
+			tag = document.createElement("script");
+			tag.src = url;
+		}
+		if (tag) {
+			tag.onload = () => resolve(url);
+			tag.onerror = () => reject(url);
+			document.head.appendChild(tag);
+		}
+	});
+}
+
+
+if (screen.width >= 768) {
+	Promise.all([
+		loadExternalResource(cssPath, "css"),
+		loadExternalResource(live2dMinJsPath, "js"),
+		loadExternalResource(live2d_path + "waifu-tips.js", "js")
+	]).then(() => {
+		
+		initWidget({
+			waifuPath: waifuTipsJsonPath,
+			
+			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.4",
+			tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+		});
+		initWaifuMouseEvent();
+	});
+}
+
+function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
     </body>
 </html>
