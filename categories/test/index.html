@@ -478,11 +478,11 @@
 </script>
 <script type="text/javascript">
 	
-const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
 
 const cssPath = "https://Canrea.github.io/waifu/waifu.css"
 const waifuTipsJsonPath = "https://Canrea.github.io/waifu/waifu-tips.json";
-const live2dMinJsPath = "https://Canrea.github.io/waifu/live2d.min.js";
+
 const live2dJsPath = "https://Canrea.github.io/waifu/live2d.min.js"
 const tipsJsPath = "https://Canrea.github.io/waifu/waifu-tips.js"
 
@@ -511,7 +511,7 @@ function loadExternalResource(url, type) {
 if (screen.width >= 768) {
 	Promise.all([
 		loadExternalResource(cssPath, "css"),
-		loadExternalResource(live2dMinJsPath, "js"),
+		
 		
 		loadExternalResource(tipsJsPath, "js"),
 		
@@ -523,56 +523,11 @@ if (screen.width >= 768) {
 			waifuPath: waifuTipsJsonPath,
 			
 			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.12",
-			tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+			tools: ["hitokoto", "photo", "info", "quit"]
 		});
-		initWaifuMouseEvent();
 	});
 }
 
-function initWaifuMouseEvent() {
-        const waifu = document.getElementById("waifu");
-        let isDown = false;
-        let waifuLeft;
-        let mouseLeft;
-        let waifuTop;
-        let mouseTop;
-        
-        waifu.onmousedown = function (e) {
-            isDown = true;
-            
-            waifuLeft = waifu.offsetLeft;
-            mouseLeft = e.clientX;
-            
-            waifuTop = waifu.offsetTop;
-            mouseTop = e.clientY;
-        }
-        
-        window.onmousemove = function (e) {
-            if (!isDown) {
-                return;
-            }
-            
-            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
-            if (currentLeft < 0) {
-                currentLeft = 0;
-            } else if (currentLeft > window.innerWidth - 300) {
-                currentLeft = window.innerWidth - 300;
-            }
-            waifu.style.left = currentLeft  + "px";
-            
-            
-            
-            
-            
-            
-            
-            
-        }
-        
-        window.onmouseup = function (e) {
-            isDown = false;
-        }
-    }
 </script>
     </body>
 </html>
