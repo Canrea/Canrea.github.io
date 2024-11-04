@@ -186,7 +186,8 @@
 				document.hidden || o(t.message.visibilitychange, 6e3, 9)
 			}))
 		}
-		localStorage.removeItem("waifu-display"), sessionStorage.removeItem("waifu-text"), document.body.insertAdjacentHTML(
+
+		localStorage.removeItem("waifu-text"), sessionStorage.removeItem("waifu-display"), document.body.insertAdjacentHTML(
 				"beforeend",
 				'<div id="waifu">\n            <div id="waifu-tips"></div>\n            <canvas id="live2d" width="800" height="800"></canvas>\n            <div id="waifu-tool"></div>\n        </div>'
 			), setTimeout((() => {
@@ -211,6 +212,7 @@
 				null === e && (e = 0, o = 0), i.loadModel(e, o), fetch(t.waifuPath).then((e => e.json())).then(c)
 			}()
 	}
+
 	window.initWidget = function(e, t) {
 		"string" == typeof e && (e = {
 			waifuPath: e,
@@ -223,9 +225,21 @@
 				(localStorage.removeItem("waifu-display"), document.getElementById("waifu").style.display = "", setTimeout((() => {
 					document.getElementById("waifu").style.bottom = 0
 				}), 0))
-		})), localStorage.getItem("waifu-display") && Date.now() - localStorage.getItem("waifu-display") <= 864e5 ? (o.setAttribute(
-			"first-time", !0), setTimeout((() => {
-			o.classList.add("waifu-toggle-active")
-		}), 0)) : i(e)
-	}
+		}));
+
+		// 在页面加载时设置 "waifu-display" 项，以确保看板娘小部件默认隐藏
+		localStorage.setItem("waifu-display", Date.now());
+
+		// 检查 "waifu-display" 项是否存在，并相应地设置 "quit" 按钮的状态
+		if (localStorage.getItem("waifu-display") && Date.now() - localStorage.getItem("waifu-display") <= 864e5) {
+			// 如果 "waifu-display" 项存在并且距离上次设置的时间不超过 24 小时，则显示 "quit" 按钮
+			o.setAttribute("first-time", !0);
+			setTimeout(() => {
+				o.classList.add("waifu-toggle-active");
+			}, 0);
+		} else {
+			// 如果 "waifu-display" 项不存在或距离上次设置的时间超过 24 小时，则初始化看板娘小部件
+			i(e);
+		}
+	};
 }();
