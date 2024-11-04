@@ -501,12 +501,12 @@
 
 <script type="text/javascript">
 	
-
+const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 
 
 
  const cssPath = "https://Canrea.github.io/waifu/waifu.css"
- const waifuTipsJsonPath = "https://Canrea.github.io/waifu/waifu-tips.json";
+ 
  const live2dJsPath = "https://Canrea.github.io/waifu/live2d.min.js"
  const tipsJsPath = "https://Canrea.github.io/waifu/waifu-tips.js";
 
@@ -552,7 +552,8 @@ if (screen.width >= 768) {
 	]).then(() => {
 		
 		initWidget({
-			waifuPath: waifuTipsJsonPath,
+			
+			waifuPath: live2d_path + "waifu-tips.json",
 			
 			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.13",
 			tools: ["hitokoto", "photo", "info", "quit"]
