@@ -406,49 +406,9 @@
     
     <section class="powerby">
 		
-		        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-        <p>发布了 6 篇文章 | 共 580 字</p>
+
+
 
 		
 		<section class="powerby">
@@ -480,37 +440,13 @@
         document.head.appendChild(customFont);
     }());
 </script>
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
-<script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
-</script>
-
 <script type="text/javascript">
 	
-
-const live2d_path = "https://fastly.jsdelivr.net/gh/Canrea/live2d-resource@latest/";
-
+const live2d_path = "https://fastly.jsdelivr.net/gh/Canrea/live2d-resource@v1.0.0/";
 
 
 
- 
- 
- 
- 
+
 
 
 
@@ -539,27 +475,72 @@ function loadExternalResource(url, type) {
 if (screen.width >= 768) {
 	Promise.all([
 		
+		
+		
+		
+		
 		loadExternalResource(live2d_path + "waifu.css", "css"),
-		
 		loadExternalResource(live2d_path + "live2d.min.js", "js"),
+		loadExternalResource(live2d_path + "waifu-tips.js", "js")
 		
 		
-		
-		
-		loadExternalResource(live2d_path+"waifu-tips.js", "js")
 	]).then(() => {
 		
 		initWidget({
 			
 			waifuPath: live2d_path + "waifu-tips.json",
 			
-			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.13",
-			tools: ["hitokoto", "photo", "info", "quit"]
+			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.14",
+			tools: ["hitokoto", "switch-texture", "photo", "info", "quit"]
 		});
+		initWaifuMouseEvent();
 	});
 }
 
+function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            let currentTop = waifuTop + (e.clientY - mouseTop);
+            if (currentTop < 30) {
+                currentTop = 30
+            } else if (currentTop > window.innerHeight - 290) {
+                currentTop = window.innerHeight - 290
+            }
+            waifu.style.top = currentTop + "px";
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
 </script>
-
     </body>
 </html>
