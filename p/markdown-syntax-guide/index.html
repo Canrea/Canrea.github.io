@@ -840,15 +840,21 @@
         if (document.readyState === "complete") NProgress.done();
     });
 </script>
+
 <script type="text/javascript">
 	
 
 
-const cssPath = "https://Canrea.github.io/waifu/waifu.css"
-const waifuTipsJsonPath = "https://Canrea.github.io/waifu/waifu-tips.json";
 
-const live2dJsPath = "https://Canrea.github.io/waifu/live2d.min.js"
-const tipsJsPath = "https://Canrea.github.io/waifu/waifu-tips.js"
+
+
+
+
+const cssPath = "http://"
+const waifuTipsJsonPath = "http://";
+const live2dJsPath = "http://"
+const tipsJsPath = "http://";
+
 
 function loadExternalResource(url, type) {
 	return new Promise((resolve, reject) => {
@@ -886,7 +892,7 @@ if (screen.width >= 768) {
 		initWidget({
 			waifuPath: waifuTipsJsonPath,
 			
-			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.12",
+			cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.13",
 			tools: ["hitokoto", "photo", "info", "quit"]
 		});
 	});
