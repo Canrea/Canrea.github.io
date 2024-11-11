@@ -92,6 +92,8 @@
 	
 &gt;&lt;/p&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;通过maven创建springboot项目&#34;&gt;通过Maven创建SpringBoot项目
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -168,8 +170,6 @@
 		data-flex-basis=&#34;341px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>
