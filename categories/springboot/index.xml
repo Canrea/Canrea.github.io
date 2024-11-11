@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Canrea</title>
-        <link>https://Canrea.github.io/post/</link>
-        <description>Recent content in Posts on Canrea</description>
+        <title>SpringBoot on Canrea</title>
+        <link>https://Canrea.github.io/categories/springboot/</link>
+        <description>Recent content in SpringBoot on Canrea</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Canrea</copyright>
-        <lastBuildDate>Mon, 11 Nov 2024 23:22:10 +0800</lastBuildDate><atom:link href="https://Canrea.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 11 Nov 2024 23:22:10 +0800</lastBuildDate><atom:link href="https://Canrea.github.io/categories/springboot/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>创建SpringBoot项目</title>
         <link>https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/</link>
         <pubDate>Mon, 11 Nov 2024 23:22:10 +0800</pubDate>
@@ -173,15 +173,6 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        </item>
-        <item>
-        <title>Hello_World</title>
-        <link>https://Canrea.github.io/p/hello_world/</link>
-        <pubDate>Sat, 02 Nov 2024 18:29:39 +0800</pubDate>
-        
-        <guid>https://Canrea.github.io/p/hello_world/</guid>
-        <description>&lt;img src="https://Canrea.github.io/p/hello_world/header.jpg" alt="Featured image of post Hello_World" /&gt;&lt;h3 id=&#34;hello-world&#34;&gt;Hello world!
-&lt;/h3&gt;</description>
         </item>
         
     </channel>

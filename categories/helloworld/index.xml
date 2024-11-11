@@ -14,19 +14,7 @@
         
         <guid>https://Canrea.github.io/p/hello_world/</guid>
         <description>&lt;img src="https://Canrea.github.io/p/hello_world/header.jpg" alt="Featured image of post Hello_World" /&gt;&lt;h3 id=&#34;hello-world&#34;&gt;Hello world!
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/hello_world/miaowa.jpg&#34;
-	width=&#34;1200&#34;
-	height=&#34;760&#34;
-	srcset=&#34;https://Canrea.github.io/p/hello_world/miaowa_hu12818683778021211949.jpg 480w, https://Canrea.github.io/p/hello_world/miaowa_hu7988036187440647829.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;157&#34;
-		data-flex-basis=&#34;378px&#34;
-	
-&gt;&lt;/p&gt;
-</description>
+&lt;/h3&gt;</description>
         </item>
         
     </channel>
