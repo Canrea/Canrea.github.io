@@ -41,7 +41,7 @@
 &lt;p&gt;&lt;strong&gt;Package name&lt;/strong&gt;: 包名&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;JDK&lt;/strong&gt;: JDK版本&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt;: 同上&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Packaging&lt;/strong&gt;: 打包方式（springBoot应用一般都是打成jar包）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Packaging&lt;/strong&gt;: 打包方式（springBoot应用一般都打成jar包）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;选择所需依赖&lt;/p&gt;
@@ -78,7 +78,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;启动项目&lt;/p&gt;
-&lt;p&gt;点击启动类做出的绿色三角型，或者右上角的绿色三角形，就能启动项目&lt;/p&gt;
+&lt;p&gt;点击启动类左边的绿色三角型，或者右上角的绿色三角形，就能启动项目&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/004.png&#34;
 	width=&#34;1732&#34;
 	height=&#34;1249&#34;
