@@ -16,8 +16,8 @@
         <description>&lt;h2 id=&#34;通过spring-initalizr创建&#34;&gt;通过Spring Initalizr创建
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;新建项目，选择Spring Initalizr（新版本显示 SpringBoot）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/001.png&#34;
+&lt;h4 id=&#34;新建项目选择spring-initalizr新版本显示-springboot&#34;&gt;新建项目，选择Spring Initalizr（新版本显示 SpringBoot）
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/001.png&#34;
 	width=&#34;1701&#34;
 	height=&#34;1064&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/001_hu13494270364279937606.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/001_hu8692461031957226521.png 1024w&#34;
@@ -31,8 +31,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;填写配置信息&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt; : 项目名称&lt;/p&gt;
+&lt;h4 id=&#34;填写配置信息&#34;&gt;填写配置信息
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt; : 项目名称&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Location&lt;/strong&gt;: 项目存放的位置&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Language&lt;/strong&gt;: 开发语言&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Type&lt;/strong&gt;: 一般都选Maven进行依赖管理&lt;/p&gt;
@@ -44,8 +44,8 @@
 &lt;p&gt;&lt;strong&gt;Packaging&lt;/strong&gt;: 打包方式（springBoot应用一般都打成jar包）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;选择所需依赖&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/002.png&#34;
+&lt;h4 id=&#34;选择所需依赖&#34;&gt;选择所需依赖
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/002.png&#34;
 	width=&#34;985&#34;
 	height=&#34;887&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/002_hu16308896063569822382.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/002_hu7960481641882180939.png 1024w&#34;
@@ -62,8 +62,8 @@
 &lt;p&gt;Create: 创建项目&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;等待项目下载完成&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/003.png&#34;
+&lt;h4 id=&#34;等待项目下载完成&#34;&gt;等待项目下载完成
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/003.png&#34;
 	width=&#34;1733&#34;
 	height=&#34;1231&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/003_hu15307311074850054602.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/003_hu14794712538331043494.png 1024w&#34;
@@ -77,8 +77,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;启动项目&lt;/p&gt;
-&lt;p&gt;点击启动类左边的绿色三角型，或者右上角的绿色三角形，就能启动项目&lt;/p&gt;
+&lt;h4 id=&#34;启动项目&#34;&gt;启动项目
+&lt;/h4&gt;&lt;p&gt;点击启动类左边的绿色三角型，或者右上角的绿色三角形，就能启动项目&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/001/004.png&#34;
 	width=&#34;1732&#34;
 	height=&#34;1249&#34;
@@ -97,8 +97,8 @@
 &lt;h2 id=&#34;通过maven创建springboot项目&#34;&gt;通过Maven创建SpringBoot项目
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;新建项目，选择&lt;strong&gt;maven&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/001.png&#34;
+&lt;h4 id=&#34;新建项目选择maven&#34;&gt;新建项目，选择&lt;strong&gt;maven&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/001.png&#34;
 	width=&#34;1676&#34;
 	height=&#34;1039&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/001_hu7632215681404499367.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/001_hu8048320840864702464.png 1024w&#34;
@@ -112,8 +112,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;点击Create，创建项目，等待项目创建完成&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/002.png&#34;
+&lt;h4 id=&#34;点击create创建项目等待项目创建完成&#34;&gt;点击Create，创建项目，等待项目创建完成
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/002.png&#34;
 	width=&#34;1736&#34;
 	height=&#34;1253&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/002_hu16149021374339487900.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/002_hu17924274861306285995.png 1024w&#34;
@@ -127,8 +127,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;修改&lt;strong&gt;pom.xml&lt;/strong&gt;文件,点击右上角刷新按钮，下载依赖&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/003.png&#34;
+&lt;h4 id=&#34;修改pomxml文件点击右上角刷新按钮下载依赖&#34;&gt;修改&lt;strong&gt;pom.xml&lt;/strong&gt;文件,点击右上角刷新按钮，下载依赖
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/003.png&#34;
 	width=&#34;1731&#34;
 	height=&#34;1230&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/003_hu3445077151247856745.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/003_hu13450697340467631823.png 1024w&#34;
@@ -142,8 +142,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;给启动了加上**@SpringBootApplication注解**，并添加启动代码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/004.png&#34;
+&lt;h4 id=&#34;给启动了加上springbootapplication注解并添加启动代码&#34;&gt;给启动了加上@&lt;strong&gt;SpringBootApplication&lt;/strong&gt;注解，并添加启动代码
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/004.png&#34;
 	width=&#34;1739&#34;
 	height=&#34;1241&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/004_hu1111715134787489672.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/004_hu2024367074821138416.png 1024w&#34;
@@ -157,8 +157,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;启动成功&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/005.png&#34;
+&lt;h4 id=&#34;启动成功&#34;&gt;启动成功
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/005.png&#34;
 	width=&#34;1729&#34;
 	height=&#34;1215&#34;
 	srcset=&#34;https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/005_hu2707723912019972901.png 480w, https://Canrea.github.io/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/002/005_hu9543782052434968520.png 1024w&#34;
