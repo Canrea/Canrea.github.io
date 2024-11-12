@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="将SpringBoot项目打包成Jar文件">
+<title>SpringBoot项目打包</title>
+
+<link rel='canonical' href='https://Canrea.github.io/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/'>
+
+<link rel="stylesheet" href="/scss/style.min.06bd352a598ada8c64f497deb692fe486fd061501fcecc9afe15d0c74c0fbcfe.css"><meta property='og:title' content="SpringBoot项目打包">
+<meta property='og:description' content="将SpringBoot项目打包成Jar文件">
+<meta property='og:url' content='https://Canrea.github.io/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/'>
+<meta property='og:site_name' content='Canrea'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-12T13:19:11&#43;08:00'/><meta property='article:modified_time' content='2024-11-12T13:19:11&#43;08:00'/>
+<meta name="twitter:title" content="SpringBoot项目打包">
+<meta name="twitter:description" content="将SpringBoot项目打包成Jar文件">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu14170110673839822955.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🐈‍⬛</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Canrea</a></h1>
+            <h2 class="site-description">欢迎来到我的网站，此网站主要分享个人生活和学习记录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/325346709'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/Canrea'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#maven-compiler-plugin插件">maven-compiler-plugin插件</a>
+      <ol>
+        <li><a href="#maven-compiler-plugin插件的主要作用">maven-compiler-plugin插件的主要作用</a></li>
+        <li><a href="#注意点">注意点</a></li>
+        <li><a href="#配置项">配置项</a></li>
+      </ol>
+    </li>
+    <li><a href="#spring-boot-maven-plugin插件">spring-boot-maven-plugin插件</a>
+      <ol>
+        <li><a href="#goals的可选值">goals的可选值</a></li>
+      </ol>
+    </li>
+    <li><a href="#打包">打包</a>
+      <ol>
+        <li><a href="#方法一">方法一</a></li>
+        <li><a href="#方法二">方法二</a></li>
+      </ol>
+    </li>
+    <li><a href="#运行">运行</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/springboot/" >
+                SpringBoot
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/">SpringBoot项目打包</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            将SpringBoot项目打包成Jar文件
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024年11月12日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <hr>
+<h2 id="maven-compiler-plugin插件">maven-compiler-plugin插件
+</h2><p>maven-compiler-plugin插件用于编译项目代码，其默认JDK版本可能不适用所有项目。通过配置插件的source和target属性，可以指定源码和目标编译的JDK版本，解决版本不匹配导致的编译问题。</p>
+<h3 id="maven-compiler-plugin插件的主要作用">maven-compiler-plugin插件的主要作用
+</h3><ol>
+<li>
+<p><strong>指定JDK版本</strong>：Maven默认使用的JDK版本可能并不符合项目的实际需求，这样就容易出现版本不匹配，以至于可能导致编译不通过的问题。通过使用maven-compiler-plugin插件可以明确指定源代码所使用的JDK版本，以及编译后的类库运行的JVM版本，从而确保项目在不同环境中的一致性和稳定性。</p>
+</li>
+<li>
+<p><strong>设置编码方式</strong>：源代码的编码方式对于编译和运行环境至关重要，maven-compiler-plugin插件允许设置代码和目标代码的编码方式，以防止因编码不一致导致的编译错误或乱码问题。</p>
+</li>
+<li>
+<p><strong>优化编译过程</strong>：maven-compiler-plugin插件提供了丰富的配置选项，可以对编译过程进行细粒度的控制。例如，可以设置是否使用增量编译、是否生成调试信息等，以提高编译效率和代码质量。</p>
+<h3 id="注意点">注意点
+</h3><p>在配置maven-compiler-plugin插件时，需要注意以下几点：</p>
+<ol>
+<li>插件版本：确保使用的maven-compiler-plugin版本与Maven版本和JDK版本兼容，不同版本的插件可能具有不同的功能和配置选项。</li>
+<li>JDK版本：根据项目实际需求选择合适的JDK版本，如果项目使用了较新的Java特性，需要确保JDK版本支持这些特性。</li>
+<li>编码方式：确保源代码文件的编码方式与maven-compiler-plugin设置的编码方式一致，以避免编码问题导致的编译错误。</li>
+</ol>
+<h3 id="配置项">配置项
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">build</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">plugins</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">plugin</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">groupId</span><span class="p">&gt;</span>org.apache.maven.plugins<span class="p">&lt;/</span><span class="nt">groupId</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">artifactId</span><span class="p">&gt;</span>maven-compiler-plugin<span class="p">&lt;/</span><span class="nt">artifactId</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 版本，要和jdk版本匹配 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">version</span><span class="p">&gt;</span>3.8.1<span class="p">&lt;/</span><span class="nt">version</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">configuration</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!-- 源码jdk版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">source</span><span class="p">&gt;</span>1.8<span class="p">&lt;/</span><span class="nt">source</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 目标jdk版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">target</span><span class="p">&gt;</span>1.8<span class="p">&lt;/</span><span class="nt">target</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 编码 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">encoding</span><span class="p">&gt;</span>UTF-8<span class="p">&lt;/</span><span class="nt">encoding</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 输出编译的详细细节，方便了解编译情况 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">verbose</span><span class="p">&gt;</span>true<span class="p">&lt;/</span><span class="nt">verbose</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">            要使compilerVersion标签生效，还需要将fork设为true，
+</span></span></span><span class="line"><span class="cl"><span class="c">            用于明确表示编译版本配置的可用。
+</span></span></span><span class="line"><span class="cl"><span class="c">            fork和executable一般搭配使用，如果省略executable并设置true，
+</span></span></span><span class="line"><span class="cl"><span class="c">            maven编译器插件默认选择JAVA_HOME/bin/javac二进制文件，
+</span></span></span><span class="line"><span class="cl"><span class="c">            如果设置了false，maven编译器插件将通过ToolProvider接口选择编译器。
+</span></span></span><span class="line"><span class="cl"><span class="c">            这意味着不会启动新进程，Maven正在运行的JavaVM与会进行编译。
+</span></span></span><span class="line"><span class="cl"><span class="c">            executable表示javac的绝对路径，默认会寻找环境变量JAVA_HOME的位置。
+</span></span></span><span class="line"><span class="cl"><span class="c">            executable也可以自己设置一个路径。--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">fork</span><span class="p">&gt;</span>true<span class="p">&lt;/</span><span class="nt">fork</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 设置外部jdk命令 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">executable</span><span class="p">&gt;</span>${JAVA_HOME}/bin/javac<span class="p">&lt;/</span><span class="nt">executable</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 最小内存 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">meminitial</span><span class="p">&gt;</span>128m<span class="p">&lt;/</span><span class="nt">meminitial</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 最大内存 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">maxmem</span><span class="p">&gt;</span>512m<span class="p">&lt;/</span><span class="nt">maxmem</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- 设置编译时jdk的版本信息 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">compilerVersion</span><span class="p">&gt;</span>1.8<span class="p">&lt;/</span><span class="nt">compilerVersion</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">configuration</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">plugin</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">plugins</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">build</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<h2 id="spring-boot-maven-plugin插件">spring-boot-maven-plugin插件
+</h2><p>该插件是项目打包插件，可以配置打包的参数，不同参数会打出不同的jar/war包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"><span class="c">&lt;!--使用的插件列表 。 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">plugins</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!--plugin元素包含描述插件所需要的信息。 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">plugin</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--插件在仓库里的group ID --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">groupId</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--插件在仓库里的artifact ID --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">artifactId</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--被使用的插件的版本（或版本范围） --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">version</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--是否从该插件下载Maven扩展（例如打包和类型处理器），由于性能原因，只有在真需要下载时，该元素才被设置成enabled。 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">extensions</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--在构建生命周期中执行一组目标的配置。每个目标可能有不同的配置。 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">executions</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!--execution元素包含了插件执行需要的信息 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">execution</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!--执行目标的标识符，用于标识构建过程中的目标，或者匹配继承过程中需要合并的执行目标 --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">id</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!--绑定了目标的构建生命周期阶段，如果省略，目标会被绑定到源数据里配置的默认阶段 --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">phase</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!--配置的执行目标 --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">goals</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!--配置是否被传播到子POM --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">inherited</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="c">&lt;!--作为DOM对象的配置 --&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">configuration</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">execution</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">executions</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--项目引入插件所需要的额外依赖 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">dependencies</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">dependency</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                ......
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">dependency</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">dependencies</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--任何配置是否被传播到子项目 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">inherited</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--作为DOM对象的配置 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">configuration</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">plugin</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">plugins</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="goals的可选值">goals的可选值
+</h3><ul>
+<li>
+<p>build-image: 将程序使用 buildpack 打包进容器镜像中。</p>
+</li>
+<li>
+<p>build-info：生成项目的构建信息文件 build-info.properties。根据当前 MavenProject 的内容生成一个 - build-info.properties 文件</p>
+</li>
+<li>
+<p>help：显示帮助信息。调用mvn spring-boot:help -Ddetail=true -Dgoal=以显示参数详细信息。</p>
+</li>
+<li>
+<p>repackage：可生成可执行的jar包或war包。插件的核心goal。 默认的 goal，将普通 mvn package 打包成的 jar 重新打包成包含所有程序依赖项的可执行 jar/war 文件，并保留 mvn package 打包的 jar 为 .original 后缀</p>
+</li>
+<li>
+<p>run：运行 Spring Boot 应用</p>
+</li>
+<li>
+<p>start：在集成测试阶段，控制生命周期。通常用于集成测试方案中，在 mvn integration-test 阶段管理 Spring Boot 应用的生命周期。</p>
+</li>
+<li>
+<p>stop：在集成测试阶段，控制生命周期。停止已通过 start 目标启动的应用程序。通常在 integration&ndash; test 完成后调用。</p>
+</li>
+</ul>
+<h2 id="打包">打包
+</h2><p>将SpringBoot项目打包成Jar文件</p>
+<h3 id="方法一">方法一
+</h3><p>在idea右侧的Maven工具栏里面选择要打包的项目&mdash;&gt;点击Lifecycle&mdash;&gt;点击package。打包好的jar文件默认会生成在左侧项目列表的target里面。</p>
+<p><img src="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/001.png"
+	width="1936"
+	height="1070"
+	srcset="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/001_hu1278681394764784835.png 480w, /p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/001_hu9192612171086098173.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="434px"
+	
+></p>
+<h3 id="方法二">方法二
+</h3><p>进入需要打包的项目主目录，在地址栏输入cmd，进入命令行控制台，在命令行执行以下代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="n">mvn</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="kn">package</span><span class="w"> </span><span class="err">-</span><span class="nn">Dmaven.test.skip</span><span class="o">=</span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/002.png"
+	width="1361"
+	height="1360"
+	srcset="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/002_hu16870327666492556027.png 480w, /p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/002_hu7705483619800589378.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+></p>
+<p>注意事项</p>
+<ul>
+<li>jdk的环境变量需要配置好</li>
+<li>maven的也要加入环境变量中</li>
+</ul>
+<h2 id="运行">运行
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">Java -jar <span class="s2">&#34;jar包所在路径&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%88%9B%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">创建SpringBoot项目</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Canrea
+    </section>
+    
+    <section class="powerby">
+		
+
+
+
+
+		
+		<section class="powerby">
+           <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> <a>designed by Jimmy</a>
+		</section>
+		
+
+		
+     
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.99ce1801c4bad426a42fc436add4721e149159dbb598636e9578fd59cf778c83.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+
+
+<script src="js/topbar.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+	var pjax = new Pjax({
+		elements: "a", 
+		selectors: [".main-container"]
+	})
+	
+
+pjax._handleResponse = pjax.handleResponse;
+
+pjax.handleResponse = function(responseText, request, href, options) {
+  if (request.responseText.match("<html")) {
+	  
+	let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+	
+	let bodyClass = newDom.body.className;
+	document.body.setAttribute("class", bodyClass)
+	
+	 
+	setTimeout(function() {
+		pjax._handleResponse(responseText, request, href, options);
+	}, 200);
+	
+    
+  } else {
+    
+  }
+}
+
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)'  
+        }
+    })
+
+document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+
+document.addEventListener('pjax:complete', ()=>{
+	
+	window.Stack.init();
+	
+	topbar.hide();
+})
+
+</script>
+
+
+<script type="text/javascript">
+    
+const live2d_path = "https://fastly.jsdelivr.net/gh/Canrea/live2d-resource@v1.0.1/";
+
+
+
+
+
+
+
+function loadExternalResource(url, type) {
+    return new Promise((resolve, reject) => {
+        let tag;
+
+        if (type === "css") {
+            tag = document.createElement("link");
+            tag.rel = "stylesheet";
+            tag.href = url;
+        }
+        else if (type === "js") {
+            tag = document.createElement("script");
+            tag.src = url;
+        }
+        if (tag) {
+            tag.onload = () => resolve(url);
+            tag.onerror = () => reject(url);
+            document.head.appendChild(tag);
+        }
+    });
+}
+
+
+function saveWaifuState() {
+    const waifu = document.getElementById('waifu');
+    const state = {
+        left: waifu.style.left,
+        top: waifu.style.top
+    };
+    localStorage.setItem('waifuState', JSON.stringify(state));
+}
+
+
+function restoreWaifuState() {
+    const state = JSON.parse(localStorage.getItem('waifuState'));
+    if (state) {
+        const waifu = document.getElementById('waifu');
+        waifu.style.left = state.left;
+        waifu.style.top = state.top;
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    restoreWaifuState();
+    
+});
+
+
+if (screen.width >= 768) {
+    Promise.all([
+        
+        
+        
+        
+        
+        loadExternalResource(live2d_path + "waifu.css", "css"),
+        loadExternalResource(live2d_path + "live2d.min.js", "js"),
+        loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        
+        
+    ]).then(() => {
+        initWidget({
+            waifuPath: live2d_path + "waifu-tips.json",
+            cdnPath: "https://cdn.jsdelivr.net/gh/Canrea/static-resource@v1.0.14",
+            tools: ["hitokoto", "switch-texture", "photo", "info", "quit"]
+        });
+        initWaifuMouseEvent();
+    });
+}
+
+function initWaifuMouseEvent() {
+    const waifu = document.getElementById("waifu");
+    let isDown = false;
+    let waifuLeft;
+    let mouseLeft;
+    let waifuTop;
+    let mouseTop;
+
+    
+    waifu.onmousedown = function (e) {
+        isDown = true;
+        
+        waifuLeft = waifu.offsetLeft;
+        mouseLeft = e.clientX;
+        
+        waifuTop = waifu.offsetTop;
+        mouseTop = e.clientY;
+    }
+
+    
+    window.onmousemove = function (e) {
+        if (!isDown) {
+            return;
+        }
+        
+        let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+        if (currentLeft < 0) {
+            currentLeft = 0;
+        } else if (currentLeft > window.innerWidth - 300) {
+            currentLeft = window.innerWidth - 300;
+        }
+        waifu.style.left = currentLeft + "px";
+        
+        let currentTop = waifuTop + (e.clientY - mouseTop);
+        if (currentTop < 30) {
+            currentTop = 30;
+        } else if (currentTop > window.innerHeight - 290) {
+            currentTop = window.innerHeight - 290;
+        }
+        waifu.style.top = currentTop + "px";
+
+        
+        saveWaifuState();
+    }
+
+    
+    window.onmouseup = function (e) {
+        isDown = false;
+    }
+}
+</script>
+
+    </body>
+</html>

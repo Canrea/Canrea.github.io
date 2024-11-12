@@ -287,6 +287,12 @@
         </li>
       </ol>
     </li>
+    <li><a href="#依赖管理">依赖管理</a>
+      <ol>
+        <li><a href="#特点">特点</a></li>
+        <li><a href="#使用方法">使用方法</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -356,7 +362,8 @@
     <section class="article-content">
     
     
-    <h2 id="通过spring-initalizr创建">通过Spring Initalizr创建
+    <hr>
+<h2 id="通过spring-initalizr创建">通过Spring Initalizr创建
 </h2><ol>
 <li>
 <h4 id="新建项目选择spring-initalizr新版本显示-springboot">新建项目，选择Spring Initalizr（新版本显示 SpringBoot）
@@ -515,6 +522,66 @@
 ></p>
 </li>
 </ol>
+<h2 id="依赖管理">依赖管理
+</h2><p>在父工程集中定义项目所需依赖的版本号</p>
+<p>spring-boot-dependencies 是Spring Boot提供的另一个重要的Maven项目，用于集中管理所有Spring Boot相关依赖的版本信息。</p>
+<h3 id="特点">特点
+</h3><ul>
+<li>包含了Spring Boot中所有的starter依赖的版本信息，包括Spring Framework、Spring Boot自身以及其他常用的第三方库。</li>
+<li>使用了<dependencyManagement>部分来管理依赖的版本信息，但是不会直接引入依赖。</li>
+<li>提供了一种简化依赖声明的方式，只需要声明spring-boot-starter-*相关的依赖，而无需指定版本号，因为版本号已经被spring-boot-dependencies管理了。</li>
+</ul>
+<h3 id="使用方法">使用方法
+</h3><p>在父工程的pom.xml中添加以下代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">properties</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- 定义jdk版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">java.version</span><span class="p">&gt;</span>8<span class="p">&lt;/</span><span class="nt">java.version</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">project.build.sourceEncoding</span><span class="p">&gt;</span>UTF-8<span class="p">&lt;/</span><span class="nt">project.build.sourceEncoding</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">project.reporting.outputEncoding</span><span class="p">&gt;</span>UTF-8<span class="p">&lt;/</span><span class="nt">project.reporting.outputEncoding</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- 定义springboot版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">spring-boot.version</span><span class="p">&gt;</span>3.0.2<span class="p">&lt;/</span><span class="nt">spring-boot.version</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">properties</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">dependencyManagement</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">dependencies</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- 引入阿里云的版本定义文件 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">dependency</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">groupId</span><span class="p">&gt;</span>org.springframework.boot<span class="p">&lt;/</span><span class="nt">groupId</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">artifactId</span><span class="p">&gt;</span>spring-boot-dependencies<span class="p">&lt;/</span><span class="nt">artifactId</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">version</span><span class="p">&gt;</span>${spring-boot.version}<span class="p">&lt;/</span><span class="nt">version</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">type</span><span class="p">&gt;</span>pom<span class="p">&lt;/</span><span class="nt">type</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">scope</span><span class="p">&gt;</span>import<span class="p">&lt;/</span><span class="nt">scope</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">dependency</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">dependencies</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">dependencyManagement</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
 
 </section>
 
@@ -531,6 +598,28 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/springboot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SpringBoot项目打包</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
