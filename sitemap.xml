@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://Canrea.github.io/</loc>
-    <lastmod>2024-11-02T18:29:39+08:00</lastmod>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
   </url><url>
     <loc>https://Canrea.github.io/categories/</loc>
-    <lastmod>2024-11-02T18:29:39+08:00</lastmod>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
+  </url><url>
+    <loc>https://Canrea.github.io/post/</loc>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
+  </url><url>
+    <loc>https://Canrea.github.io/categories/spring/</loc>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
+  </url><url>
+    <loc>https://Canrea.github.io/p/spring-aop/</loc>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
+  </url><url>
+    <loc>https://Canrea.github.io/categories/springboot/</loc>
+    <lastmod>2024-11-15T11:18:24+08:00</lastmod>
   </url><url>
     <loc>https://Canrea.github.io/p/hello_world/</loc>
     <lastmod>2024-11-02T18:29:39+08:00</lastmod>
@@ -14,18 +26,11 @@
     <loc>https://Canrea.github.io/categories/helloworld/</loc>
     <lastmod>2024-11-02T18:29:39+08:00</lastmod>
   </url><url>
-    <loc>https://Canrea.github.io/post/</loc>
-    <lastmod>2024-11-02T18:29:39+08:00</lastmod>
-  </url><url>
     <loc>https://Canrea.github.io/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Canrea.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Canrea.github.io/categories/spring/</loc>
-  </url><url>
-    <loc>https://Canrea.github.io/categories/springboot/</loc>
   </url><url>
     <loc>https://Canrea.github.io/categories/springcloud/</loc>
   </url><url>
